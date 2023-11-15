@@ -13,22 +13,23 @@ import ActionModal from "../ActionModal";
 export default function Main() {
   const [alcool, setAlcool] = useState("");
   const [gasolina, setGasolina] = useState("");
-  const [resultado, setResultado] = useState("Compensa usar gasolina.");
-  const [mostrarModal, setMostrarModal] = useState(true);
+  const [resultado, setResultado] = useState("");
+  const [mostrarModal, setMostrarModal] = useState(false);
+  const [erro, setErro] = useState("");
 
   function calcular() {
     if (!alcool || !gasolina) {
-      setResultado("Preencha a gasolina e o alcool.");
+      setErro("Preencha a gasolina e o alcool.");
       return;
     }
     const valorAlcool = parseFloat(alcool);
     const valorGasolina = parseFloat(gasolina);
     const result = valorAlcool / valorGasolina;
     if (result < 0.7) {
-      setResultado("Compensa usar álcool.");
+      setResultado("Compensa usar Álcool.");
       setMostrarModal(true);
     } else {
-      setResultado("Compensa usar gasolina.");
+      setResultado("Compensa usar Gasolina.");
       setMostrarModal(true);
     }
   }
@@ -66,7 +67,7 @@ export default function Main() {
       >
         <Text style={styles.mainButtonText}>Calcular</Text>
       </TouchableOpacity>
-      <Text style={styles.mainTextResultado}>{resultado}</Text>
+      <Text style={styles.mainTextResultado}>{erro}</Text>
     </View>
   );
 }

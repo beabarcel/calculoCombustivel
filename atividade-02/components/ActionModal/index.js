@@ -8,28 +8,53 @@ export default function ActionModal({
 }) {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}> {resultado} </Text>
-      <Text style={styles.title}>Com os preços: </Text>
-      <Text style={styles.title}>Alcool : R$ {alcool}</Text>
-      <Text style={styles.title}>Gasolina : R$ {gasolina}</Text>
+      <Text style={styles.resultado}> {resultado} </Text>
+      <Text style={styles.precos}>Com os preços: </Text>
+      <Text style={styles.title}>Alcool: R$ {alcool}</Text>
+      <Text style={styles.title}>Gasolina: R$ {gasolina}</Text>
 
-      <TouchableOpacity
-        style={{ flex: 1, zIndex: 9 }}
-        onPress={handleClose}
-      ></TouchableOpacity>
+      <TouchableOpacity style={styles.botao} onPress={handleClose}>
+        <Text style={styles.botaoTitulo}>Calcular Novamente</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#212121",
-    height: "100%",
+  botaoTitulo: {
+    color: "#ef4130",
+    fontSize: 20,
   },
-  title: {
+  botao: {
+    marginTop: 35,
+    borderRadius: 5,
+    backgroundColor: "transparent",
+    borderWidth: 2,
+    borderColor: "#ef4130",
+    paddingHorizontal: 32,
+    paddingVertical: 2,
+  },
+  precos: {
     color: "#fff",
     fontSize: 24,
     fontWeight: "bold",
+    paddingBottom: 6,
+  },
+  resultado: {
+    color: "#2bbb4b",
+    fontSize: 30,
+    fontWeight: "bold",
+    paddingBottom: 25,
+  },
+  container: {
+    backgroundColor: "#212121",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  title: {
+    color: "#fff",
+    fontSize: 20,
   },
   content: {
     marginVertical: 20,
