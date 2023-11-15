@@ -13,8 +13,8 @@ import ActionModal from "../ActionModal";
 export default function Main() {
   const [alcool, setAlcool] = useState("");
   const [gasolina, setGasolina] = useState("");
-  const [resultado, setResultado] = useState("");
-  const [mostrarModal, setMostrarModal] = useState(false);
+  const [resultado, setResultado] = useState("Compensa usar gasolina.");
+  const [mostrarModal, setMostrarModal] = useState(true);
 
   function calcular() {
     if (!alcool || !gasolina) {
